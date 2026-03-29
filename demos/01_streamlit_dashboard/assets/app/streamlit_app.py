@@ -177,7 +177,7 @@ with col_l2:
     region_df.columns = ["地域", "売上（円）", "販売数量", "粗利率(%)"]
     region_df["売上（円）"] = region_df["売上（円）"].map("{:,.0f}".format)
     region_df["販売数量"]   = region_df["販売数量"].map("{:,.0f}".format)
-    st.dataframe(region_df, use_container_width=True, hide_index=True)
+    st.dataframe(region_df, use_container_width=True, )
 
 with col_r2:
     st.subheader("商品別売上トップ10")
@@ -196,7 +196,7 @@ with col_r2:
     top_products.columns = ["商品名", "カテゴリ", "売上（円）", "販売数量", "粗利率(%)"]
     top_products["売上（円）"] = top_products["売上（円）"].map("{:,.0f}".format)
     top_products["販売数量"]   = top_products["販売数量"].map("{:,.0f}".format)
-    st.dataframe(top_products, use_container_width=True, hide_index=True)
+    st.dataframe(top_products, use_container_width=True, )
 
 st.divider()
 
@@ -246,7 +246,7 @@ with c_table:
     camp_df.columns = ["チャネル", "件数", "費用（円）", "CTR(%)", "CVR(%)", "CPA（円）"]
     camp_df["費用（円）"] = camp_df["費用（円）"].map("{:,.0f}".format)
     camp_df["CPA（円）"]  = camp_df["CPA（円）"].map("{:,.0f}".format)
-    st.dataframe(camp_df, use_container_width=True, hide_index=True)
+    st.dataframe(camp_df, use_container_width=True, )
 
 # ── Footer ────────────────────────────────────────────────────────────────────
 st.divider()
