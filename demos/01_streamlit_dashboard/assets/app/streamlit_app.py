@@ -225,22 +225,23 @@ with c_chart:
         alt.Chart(ctr_cvr)
         .mark_bar()
         .encode(
-            x=alt.X("CHANNEL:N", title="チャネル"),
+            x=alt.X("METRIC:N", title="", axis=alt.Axis(labels=False, ticks=False)),
             y=alt.Y("VALUE:Q", title="率（%）"),
             color=alt.Color("METRIC:N", title="指標",
                             scale=alt.Scale(
                                 domain=["CTR", "CVR"],
                                 range=["#aec7e8", "#1f77b4"])),
-            xOffset="METRIC:N",
+            column=alt.Column("CHANNEL:N", title="チャネル",
+                              header=alt.Header(labelAngle=-30, labelAlign="right")),
             tooltip=[
                 alt.Tooltip("CHANNEL:N", title="チャネル"),
                 alt.Tooltip("METRIC:N",  title="指標"),
                 alt.Tooltip("VALUE:Q",   title="値(%)", format=".2f"),
             ],
         )
-        .properties(height=280)
+        .properties(height=260, width=70)
     )
-    st.altair_chart(grouped, use_container_width=True)
+    st.altair_chart(grouped)
 
 with c_table:
     camp_df.columns = ["チャネル", "件数", "費用（円）", "CTR(%)", "CVR(%)", "CPA（円）"]
